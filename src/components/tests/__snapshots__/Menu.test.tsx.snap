@@ -21,10 +21,17 @@ exports[`Menu should render correctly 1`] = `
           class="css-0"
         >
           <span>
-            My Recipe N° 1 incremented 0 times
+            My Recipe N° 1 incremented
+            <span
+              data-testid="recipe-inc"
+            >
+              0
+            </span>
+             times
           </span>
           <button
             class="chakra-button css-taj3dd"
+            data-testid="button-inc"
             type="button"
           >
             +
@@ -38,10 +45,17 @@ exports[`Menu should render correctly 1`] = `
           class="css-0"
         >
           <span>
-            My Recipe N° 2 incremented 0 times
+            My Recipe N° 2 incremented
+            <span
+              data-testid="recipe-inc"
+            >
+              0
+            </span>
+             times
           </span>
           <button
             class="chakra-button css-taj3dd"
+            data-testid="button-inc"
             type="button"
           >
             +
@@ -55,10 +69,17 @@ exports[`Menu should render correctly 1`] = `
           class="css-0"
         >
           <span>
-            My Recipe N° 3 incremented 0 times
+            My Recipe N° 3 incremented
+            <span
+              data-testid="recipe-inc"
+            >
+              0
+            </span>
+             times
           </span>
           <button
             class="chakra-button css-taj3dd"
+            data-testid="button-inc"
             type="button"
           >
             +

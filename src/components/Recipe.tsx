@@ -12,8 +12,11 @@ const Recipe = (props: RecipeProps) => {
     };
 
     return <Box>
-        <span>My Recipe N° {props.id} incremented {inc} times</span>
-        <Button onClick={handleIncClick}>+</Button>
+        <span>
+            My Recipe N° {props.id} incremented
+            <span data-testid="recipe-inc">{inc}</span> times
+        </span>
+        <Button data-testid="button-inc" onClick={handleIncClick}>+</Button>
     </Box>
 }
 

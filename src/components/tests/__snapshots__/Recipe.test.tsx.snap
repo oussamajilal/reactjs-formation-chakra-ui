@@ -6,10 +6,17 @@ exports[`Recipe should render correctly 1`] = `
     class="css-0"
   >
     <span>
-      My Recipe N° 1 incremented 0 times
+      My Recipe N° 1 incremented
+      <span
+        data-testid="recipe-inc"
+      >
+        0
+      </span>
+       times
     </span>
     <button
       class="chakra-button css-taj3dd"
+      data-testid="button-inc"
       type="button"
     >
       +

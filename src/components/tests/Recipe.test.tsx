@@ -10,4 +10,17 @@ describe('Recipe', () => {
         const { asFragment } = render(<Recipe id={1} />)
         expect(asFragment()).toMatchSnapshot()
     })
+
+    it('should increment the counter when clicking the button', () => {
+        const { getByTestId } = render(<Recipe id={1} />)
+        const recipeInc = getByTestId('recipe-inc')
+        const buttonInc = getByTestId('button-inc')
+        expect(recipeInc).toHaveTextContent('0')
+        buttonInc.click()
+        expect(recipeInc).toHaveTextContent('1')
+        buttonInc.click()
+        expect(recipeInc).toHaveTextContent('2')
+        buttonInc.click()
+        expect(recipeInc).toHaveTextContent('3')
+    })
 })
