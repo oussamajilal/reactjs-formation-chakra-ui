@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recipe should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-0"
+  >
+    <span>
+      My Recipe N° 1 incremented 0 times
+    </span>
+    <button
+      class="chakra-button css-taj3dd"
+      type="button"
+    >
+      +
+    </button>
+  </div>
+</DocumentFragment>
+`;
