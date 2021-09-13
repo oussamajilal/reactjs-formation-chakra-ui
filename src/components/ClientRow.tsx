@@ -16,7 +16,7 @@ const ClientRow: React.FC<ClientRowProps> = (props) => {
       <Td>{props.user.email}</Td>
       <Td>{props.user.phoneNumber}</Td>
       <Td isNumeric>{props.user.height}</Td>
-      <Td>{props.user.isActive ? <CheckIcon /> : <NotAllowedIcon />}</Td>
+      <Td>{props.user.isActive ? <CheckIcon color="green.500" /> : <NotAllowedIcon color="red.500" />}</Td>
     </Tr>
   );
 };
