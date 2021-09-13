@@ -9,7 +9,7 @@ import {
   ModalOverlay,
 } from "@chakra-ui/modal";
 import { Button } from "@chakra-ui/button";
-import { Spacer } from "@chakra-ui/react";
+import NewClientForm from "./NewClientForm";
 
 interface NewClientModalProps {
   isOpen: boolean;
@@ -23,7 +23,9 @@ const NewClientModal: React.FC<NewClientModalProps> = (props) => {
       <ModalContent>
         <ModalHeader>New Client</ModalHeader>
         <ModalCloseButton />
-        <ModalBody>Form goes here</ModalBody>
+        <ModalBody>
+          <NewClientForm />
+        </ModalBody>
 
         <ModalFooter>
           <Button variant="ghost" mr="3" onClick={props.onClose}>
