@@ -1,9 +1,9 @@
 import * as React from "react";
 import { ChakraProvider, theme } from "@chakra-ui/react";
-import ClientTable from "./components/ClientTable";
+import ClientList from "./components/ClientList";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <ClientTable />
+    <ClientList />
   </ChakraProvider>
 );
