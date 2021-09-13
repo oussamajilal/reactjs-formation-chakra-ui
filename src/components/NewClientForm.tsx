@@ -15,34 +15,37 @@ import {
 import { Switch } from "@chakra-ui/switch";
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { EmailIcon } from "@chakra-ui/icons";
-import { FormikContextType, FormikValues } from "formik";
+import { FormikProps } from "formik";
+import { Client } from "./Client";
 
 interface NewClientFormProps {
-  formik: FormikContextType<FormikValues>;
+  formik: FormikProps<Client>;
 }
 
 const NewClientForm: React.FC<NewClientFormProps> = (props) => {
-  const checkValidity = (field: string) =>
-    !!(props.formik.touched[field] && props.formik.errors[field]);
   return (
     <>
       <Input
         placeholder="ID"
         mb="2"
         {...props.formik.getFieldProps("id")}
-        isInvalid={checkValidity("id")}
+        isInvalid={!!(props.formik.touched.id && props.formik.errors.id)}
       />
       <Input
         placeholder="First Name"
         mb="2"
         {...props.formik.getFieldProps("firstName")}
-        isInvalid={checkValidity("firstName")}
+        isInvalid={
+          !!(props.formik.touched.firstName && props.formik.errors.firstName)
+        }
       />
       <Input
         placeholder="Last Name"
         mb="2"
         {...props.formik.getFieldProps("lastName")}
-        isInvalid={checkValidity("lastName")}
+        isInvalid={
+          !!(props.formik.touched.lastName && props.formik.errors.lastName)
+        }
       />
       <InputGroup mb="2">
         <InputLeftElement
@@ -53,7 +56,9 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
           type="email"
           placeholder="Email"
           {...props.formik.getFieldProps("email")}
-          isInvalid={checkValidity("email")}
+          isInvalid={
+            !!(props.formik.touched.email && props.formik.errors.email)
+          }
         />
       </InputGroup>
       <InputGroup mb="2">
@@ -62,7 +67,12 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
           type="tel"
           placeholder="Phone Number"
           {...props.formik.getFieldProps("phoneNumber")}
-          isInvalid={checkValidity("phoneNumber")}
+          isInvalid={
+            !!(
+              props.formik.touched.phoneNumber &&
+              props.formik.errors.phoneNumber
+            )
+          }
         />
       </InputGroup>
       <NumberInput
@@ -74,7 +84,9 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
         step={0.1}
         max={100}
         min={20}
-        isInvalid={checkValidity("height")}
+        isInvalid={
+          !!(props.formik.touched.height && props.formik.errors.height)
+        }
       >
         <NumberInputField
           placeholder="Height"

@@ -33,6 +33,7 @@ const NewClientModal: React.FC<NewClientModalProps> = (props) => {
 
   const handleSubmit = (values: Client) => {
     props.handleSubmit(values);
+    props.onClose();
   };
 
   const formik = useFormik({
@@ -56,7 +57,7 @@ const NewClientModal: React.FC<NewClientModalProps> = (props) => {
             <Button variant="ghost" mr="3" onClick={props.onClose}>
               Cancel
             </Button>
-            <Button type="submit" colorScheme="blue" onClick={props.onClose}>
+            <Button type="submit" colorScheme="blue">
               Add
             </Button>
           </ModalFooter>
