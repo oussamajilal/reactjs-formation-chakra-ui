@@ -11,25 +11,27 @@ import {
 import { Button } from "@chakra-ui/button";
 import NewClientForm from "./NewClientForm";
 import { useFormik } from "formik";
+import { Client } from "./Client";
 
 interface NewClientModalProps {
   isOpen: boolean;
   onClose(): void;
+  handleSubmit: Function;
 }
 
 const NewClientModal: React.FC<NewClientModalProps> = (props) => {
-  const initialValues = {
+  const initialValues: Client = {
     id: "",
     firstName: "",
     lastName: "",
     email: "",
     phoneNumber: "",
-    height: '70.2',
+    height: 70.2,
     isActive: true,
   };
 
-  const handleSubmit = (values: any) => {
-    alert(JSON.stringify(values));
+  const handleSubmit = (values: Client) => {
+    props.handleSubmit(values);
   };
 
   const formik = useFormik({

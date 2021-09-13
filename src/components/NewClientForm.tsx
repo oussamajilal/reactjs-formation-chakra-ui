@@ -79,6 +79,7 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
         </FormLabel>
         <Switch
           id="client-active"
+          isChecked={props.formik.getFieldProps("isActive").value}
           {...props.formik.getFieldProps("isActive")}
         />
       </FormControl>

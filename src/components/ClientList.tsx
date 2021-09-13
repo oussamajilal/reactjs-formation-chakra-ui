@@ -5,9 +5,10 @@ import { Container } from "@chakra-ui/layout";
 import ClientTable from "./ClientTable";
 import { useDisclosure } from "@chakra-ui/hooks";
 import NewClientModal from "./NewClientModal";
+import { Client } from "./Client";
 
 const ClientList = () => {
-  const clients = [
+  const initialClients: Array<Client> = [
     {
       id: "1",
       firstName: "Ahmed",
@@ -37,7 +38,13 @@ const ClientList = () => {
     },
   ];
 
+  const [clients, setClients] = React.useState(initialClients);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleSubmit = (newClient: Client) => {
+    setClients([...clients, newClient]);
+  };
 
   return (
     <>
@@ -51,7 +58,11 @@ const ClientList = () => {
         >
           Add a new client
         </Button>
-        <NewClientModal isOpen={isOpen} onClose={onClose} />
+        <NewClientModal
+          isOpen={isOpen}
+          onClose={onClose}
+          handleSubmit={handleSubmit}
+        />
       </Container>
     </>
   );
