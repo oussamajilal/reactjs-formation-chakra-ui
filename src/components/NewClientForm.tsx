@@ -15,25 +15,34 @@ import {
 import { Switch } from "@chakra-ui/switch";
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { EmailIcon } from "@chakra-ui/icons";
-import { FormikHandlers } from "formik";
+import { FormikContextType, FormikValues } from "formik";
 
 interface NewClientFormProps {
-  formik: FormikHandlers;
+  formik: FormikContextType<FormikValues>;
 }
 
 const NewClientForm: React.FC<NewClientFormProps> = (props) => {
+  const checkValidity = (field: string) =>
+    !!(props.formik.touched[field] && props.formik.errors[field]);
   return (
     <>
-      <Input placeholder="ID" mb="2" {...props.formik.getFieldProps("id")} />
+      <Input
+        placeholder="ID"
+        mb="2"
+        {...props.formik.getFieldProps("id")}
+        isInvalid={checkValidity("id")}
+      />
       <Input
         placeholder="First Name"
         mb="2"
         {...props.formik.getFieldProps("firstName")}
+        isInvalid={checkValidity("firstName")}
       />
       <Input
         placeholder="Last Name"
         mb="2"
         {...props.formik.getFieldProps("lastName")}
+        isInvalid={checkValidity("lastName")}
       />
       <InputGroup mb="2">
         <InputLeftElement
@@ -44,6 +53,7 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
           type="email"
           placeholder="Email"
           {...props.formik.getFieldProps("email")}
+          isInvalid={checkValidity("email")}
         />
       </InputGroup>
       <InputGroup mb="2">
@@ -52,6 +62,7 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
           type="tel"
           placeholder="Phone Number"
           {...props.formik.getFieldProps("phoneNumber")}
+          isInvalid={checkValidity("phoneNumber")}
         />
       </InputGroup>
       <NumberInput
@@ -63,6 +74,7 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
         step={0.1}
         max={100}
         min={20}
+        isInvalid={checkValidity("height")}
       >
         <NumberInputField
           placeholder="Height"
