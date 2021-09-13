@@ -1,5 +1,10 @@
 import * as React from "react";
+import { Button } from "@chakra-ui/button";
+import { PlusSquareIcon } from "@chakra-ui/icons";
+import { Container } from "@chakra-ui/layout";
 import ClientTable from "./ClientTable";
+import { useDisclosure } from "@chakra-ui/hooks";
+import NewClientModal from "./NewClientModal";
 
 const ClientList = () => {
   const clients = [
@@ -32,7 +37,24 @@ const ClientList = () => {
     },
   ];
 
-  return <ClientTable clients={clients} />;
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <>
+      <ClientTable clients={clients} />
+      <Container maxW="container.lg" paddingTop="5">
+        <Button
+          leftIcon={<PlusSquareIcon />}
+          colorScheme="green"
+          variant="solid"
+          onClick={onOpen}
+        >
+          Add a new client
+        </Button>
+        <NewClientModal isOpen={isOpen} onClose={onClose} />
+      </Container>
+    </>
+  );
 };
 
 export default ClientList;
