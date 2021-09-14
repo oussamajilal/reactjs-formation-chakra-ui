@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box } from "@chakra-ui/layout";
+import { Box, Flex } from "@chakra-ui/layout";
 import { useQuery } from "react-query";
 import queries from "../queries";
 import Loader from "../Loader";
@@ -22,36 +22,36 @@ const Profile = () => {
   return (
     <>
       {data && (
-        <Box>
-          <Box>
-            <Box>ID</Box>
-            <Box>{data.id}</Box>
-          </Box>
-          <Box>
-            <Box>First Name</Box>
-            <Box>{data.firstName}</Box>
-          </Box>
-          <Box>
-            <Box>Last Name</Box>
-            <Box>{data.lastName}</Box>
-          </Box>
-          <Box>
-            <Box>Email</Box>
-            <Box>{data.email}</Box>
-          </Box>
-          <Box>
-            <Box>Phone Number</Box>
-            <Box>{data.phoneNumber}</Box>
-          </Box>
-          <Box>
-            <Box>Height</Box>
-            <Box>{data.height}</Box>
-          </Box>
-          <Box>
-            <Box>Active?</Box>
-            <Box>{data.isActive}</Box>
-          </Box>
-        </Box>
+        <Flex direction="column">
+          <Flex justifyContent="center">
+            <Box w="30%">ID</Box>
+            <Box w="30%">{data.id}</Box>
+          </Flex>
+          <Flex justifyContent="center">
+            <Box w="30%">First Name</Box>
+            <Box w="30%">{data.firstName}</Box>
+          </Flex>
+          <Flex justifyContent="center">
+            <Box w="30%">Last Name</Box>
+            <Box w="30%">{data.lastName}</Box>
+          </Flex>
+          <Flex justifyContent="center">
+            <Box w="30%">Email</Box>
+            <Box w="30%">{data.email}</Box>
+          </Flex>
+          <Flex justifyContent="center">
+            <Box w="30%">Phone Number</Box>
+            <Box w="30%">{data.phoneNumber}</Box>
+          </Flex>
+          <Flex justifyContent="center">
+            <Box w="30%">Height</Box>
+            <Box w="30%">{data.height}</Box>
+          </Flex>
+          <Flex justifyContent="center">
+            <Box w="30%">Active?</Box>
+            <Box w="30%">{data.isActive ? "Yes" : "No"}</Box>
+          </Flex>
+        </Flex>
       )}
     </>
   );
