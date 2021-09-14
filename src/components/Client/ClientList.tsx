@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button } from "@chakra-ui/button";
 import { PlusSquareIcon } from "@chakra-ui/icons";
-import { Container } from "@chakra-ui/layout";
+import { Container, Heading } from "@chakra-ui/layout";
 import ClientTable from "./ClientTable";
 import { useDisclosure } from "@chakra-ui/hooks";
 import NewClientModal from "./NewClientModal";
@@ -10,8 +10,10 @@ import { useQuery } from "react-query";
 import queries from "../queries";
 import Loader from "../Loader";
 import ErrorAlert from "../ErrorAlert";
+import { UserContext } from "../UserContext";
 
 const ClientList = () => {
+  const { user } = React.useContext(UserContext);
   const { data, error, isError, isLoading, refetch } = useQuery(
     "clients",
     queries.fetchClients
@@ -33,6 +35,11 @@ const ClientList = () => {
 
   return (
     <>
+      {user && (
+        <Heading>
+          Welcome {user.firstName} {user.lastName}
+        </Heading>
+      )}
       {data && (
         <>
           <ClientTable clients={data} />

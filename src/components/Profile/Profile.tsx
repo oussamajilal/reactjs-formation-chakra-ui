@@ -4,11 +4,18 @@ import { useQuery } from "react-query";
 import queries from "../queries";
 import Loader from "../Loader";
 import ErrorAlert from "../ErrorAlert";
+import { UserContext } from "../UserContext";
 
 const Profile = () => {
+  const { updateUser } = React.useContext(UserContext);
   const { data, error, isError, isLoading } = useQuery(
     "profile",
-    queries.fetchProfile
+    queries.fetchProfile,
+    {
+      onSuccess: (data) => {
+        updateUser(data);
+      },
+    }
   );
 
   if (isLoading) {
