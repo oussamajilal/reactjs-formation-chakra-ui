@@ -13,7 +13,7 @@ import NewClientForm from "./NewClientForm";
 import { useFormik } from "formik";
 import { Client } from "./Client";
 import NewClientSchema from "./NewClientSchema";
-import queries from "./queries";
+import queries from "../queries";
 import { useMutation } from "react-query";
 import { Alert, AlertIcon } from "@chakra-ui/alert";
 

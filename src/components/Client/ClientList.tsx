@@ -7,9 +7,9 @@ import { useDisclosure } from "@chakra-ui/hooks";
 import NewClientModal from "./NewClientModal";
 import { Client } from "./Client";
 import { useQuery } from "react-query";
-import queries from "./queries";
-import Loader from "./Loader";
-import ErrorAlert from "./ErrorAlert";
+import queries from "../queries";
+import Loader from "../Loader";
+import ErrorAlert from "../ErrorAlert";
 
 const ClientList = () => {
   const { data, error, isError, isLoading, refetch } = useQuery(
@@ -33,23 +33,27 @@ const ClientList = () => {
 
   return (
     <>
-      <ClientTable clients={data as Array<Client>} />
-      <Container maxW="container.lg" paddingTop="5">
-        <Button
-          data-testid="modal-btn"
-          leftIcon={<PlusSquareIcon />}
-          colorScheme="green"
-          variant="solid"
-          onClick={onOpen}
-        >
-          Add a new client
-        </Button>
-        <NewClientModal
-          isOpen={isOpen}
-          onClose={onClose}
-          handleSubmit={handleSubmit}
-        />
-      </Container>
+      {data && (
+        <>
+          <ClientTable clients={data} />
+          <Container maxW="container.lg" paddingTop="5">
+            <Button
+              data-testid="modal-btn"
+              leftIcon={<PlusSquareIcon />}
+              colorScheme="green"
+              variant="solid"
+              onClick={onOpen}
+            >
+              Add a new client
+            </Button>
+            <NewClientModal
+              isOpen={isOpen}
+              onClose={onClose}
+              handleSubmit={handleSubmit}
+            />
+          </Container>
+        </>
+      )}
     </>
   );
 };

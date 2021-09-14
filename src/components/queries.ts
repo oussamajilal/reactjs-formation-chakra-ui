@@ -1,18 +1,23 @@
 import axios from "axios";
-import { Client } from "./Client";
+import { Client } from "./Client/Client";
 
 const BASE_URL = "http://localhost:3001";
 
-const queries = { fetchClients, createClient };
+const fetchProfile = async () => {
+  const { data } = await axios.get(`${BASE_URL}/profile`);
+  return data as Client;
+};
 
-async function fetchClients() {
+const fetchClients = async () => {
   const { data } = await axios.get(`${BASE_URL}/clients`);
-  return data;
-}
+  return data as Array<Client>;
+};
 
-async function createClient(client: Client) {
+const createClient = async (client: Client) => {
   const { data } = await axios.post(`${BASE_URL}/clients`, client);
   return data;
-}
+};
+
+const queries = { fetchProfile, fetchClients, createClient };
 
 export default queries;
