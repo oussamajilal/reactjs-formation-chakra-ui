@@ -15,6 +15,7 @@ const ClientTable: React.FC<ClientListProps> = (props) => (
     centerContent
     border="1px"
     borderColor="gray.200"
+    mt="10"
   >
     <Table variant="striped" colorScheme="teal">
       <TableCaption>Users List</TableCaption>
@@ -22,8 +23,8 @@ const ClientTable: React.FC<ClientListProps> = (props) => (
         <ClientHeader />
       </Thead>
       <Tbody>
-        {props.clients.map((client, index) => (
-          <ClientRow key={index} client={client} />
+        {props.clients.map((client) => (
+          <ClientRow key={client.id} client={client} />
         ))}
       </Tbody>
       <Tfoot>
