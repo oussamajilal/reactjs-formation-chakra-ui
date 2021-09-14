@@ -39,10 +39,13 @@ const NewClientModal: React.FC<NewClientModalProps> = (props) => {
     isActive: true,
   };
 
-  const handleSubmit = (values: Client) => {
-    mutate(values);
-    props.handleSubmit(values);
-    props.onClose();
+  const handleSubmit = async (values: Client) => {
+    mutate(values, {
+      onSuccess: () => {
+        props.handleSubmit(values);
+        props.onClose();
+      },
+    });
   };
 
   const formik = useFormik({
