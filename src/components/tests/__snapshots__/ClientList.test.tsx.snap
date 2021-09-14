@@ -1,0 +1,334 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClientList should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-container css-1xnqsi7"
+  >
+    <table
+      class="chakra-table css-5605sr"
+      role="table"
+    >
+      <caption
+        class="css-7478fk"
+      >
+        Users List
+      </caption>
+      <thead
+        class="css-0"
+      >
+        <tr
+          class="css-0"
+          role="row"
+        >
+          <th
+            class="css-1sa2h46"
+          >
+            ID
+          </th>
+          <th
+            class="css-1sa2h46"
+          >
+            First Name
+          </th>
+          <th
+            class="css-1sa2h46"
+          >
+            Last Name
+          </th>
+          <th
+            class="css-1sa2h46"
+          >
+            Email
+          </th>
+          <th
+            class="css-1sa2h46"
+          >
+            Phone Number
+          </th>
+          <th
+            class="css-1sa2h46"
+            data-is-numeric="true"
+          >
+            Height
+          </th>
+          <th
+            class="css-1sa2h46"
+          >
+            Active
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="css-woqubx"
+      >
+        <tr
+          class="css-0"
+          role="row"
+        >
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            1
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            Ahmed
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            Ali
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            ahmed.ali@email.com
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            +212666778899
+          </td>
+          <td
+            class="css-12y4u6o"
+            data-is-numeric="true"
+            role="gridcell"
+          >
+            72.5
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            <svg
+              class="chakra-icon css-y3r3qv"
+              focusable="false"
+              viewBox="0 0 14 14"
+            >
+              <g
+                fill="currentColor"
+              >
+                <polygon
+                  points="5.5 11.9993304 14 3.49933039 12.5 2 5.5 8.99933039 1.5 4.9968652 0 6.49933039"
+                />
+              </g>
+            </svg>
+          </td>
+        </tr>
+        <tr
+          class="css-0"
+          role="row"
+        >
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            2
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            Salim
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            Karam
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            salim.karam@email.com
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            +212666778898
+          </td>
+          <td
+            class="css-12y4u6o"
+            data-is-numeric="true"
+            role="gridcell"
+          >
+            65
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            <svg
+              class="chakra-icon css-dzn7nc"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"
+                fill="currentColor"
+              />
+            </svg>
+          </td>
+        </tr>
+        <tr
+          class="css-0"
+          role="row"
+        >
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            3
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            Soukaina
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            Latif
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            soukaina.latif@email.com
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            +212666778897
+          </td>
+          <td
+            class="css-12y4u6o"
+            data-is-numeric="true"
+            role="gridcell"
+          >
+            69.3
+          </td>
+          <td
+            class="css-12y4u6o"
+            role="gridcell"
+          >
+            <svg
+              class="chakra-icon css-y3r3qv"
+              focusable="false"
+              viewBox="0 0 14 14"
+            >
+              <g
+                fill="currentColor"
+              >
+                <polygon
+                  points="5.5 11.9993304 14 3.49933039 12.5 2 5.5 8.99933039 1.5 4.9968652 0 6.49933039"
+                />
+              </g>
+            </svg>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot
+        class="css-5wov5z"
+      >
+        <tr
+          class="css-0"
+          role="row"
+        >
+          <th
+            class="css-1sa2h46"
+          >
+            ID
+          </th>
+          <th
+            class="css-1sa2h46"
+          >
+            First Name
+          </th>
+          <th
+            class="css-1sa2h46"
+          >
+            Last Name
+          </th>
+          <th
+            class="css-1sa2h46"
+          >
+            Email
+          </th>
+          <th
+            class="css-1sa2h46"
+          >
+            Phone Number
+          </th>
+          <th
+            class="css-1sa2h46"
+            data-is-numeric="true"
+          >
+            Height
+          </th>
+          <th
+            class="css-1sa2h46"
+          >
+            Active
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div
+    class="chakra-container css-1m2doq5"
+  >
+    <button
+      class="chakra-button css-5w5n0l"
+      data-testid="modal-btn"
+      type="button"
+    >
+      <span
+        class="chakra-button__icon css-1wh2kri"
+      >
+        <svg
+          aria-hidden="true"
+          class="chakra-icon css-onkibi"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-width="2"
+          >
+            <rect
+              height="18"
+              rx="2"
+              ry="2"
+              width="18"
+              x="3"
+              y="3"
+            />
+            <path
+              d="M12 8v8"
+            />
+            <path
+              d="M8 12h8"
+            />
+          </g>
+        </svg>
+      </span>
+      Add a new client
+    </button>
+  </div>
+</DocumentFragment>
+`;

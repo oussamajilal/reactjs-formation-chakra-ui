@@ -43,6 +43,7 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
         }
       >
         <Input
+          data-testid="new-client-first-name"
           placeholder="First Name"
           {...props.formik.getFieldProps("firstName")}
         />
@@ -55,6 +56,7 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
         }
       >
         <Input
+          data-testid="new-client-last-name"
           placeholder="Last Name"
           {...props.formik.getFieldProps("lastName")}
         />

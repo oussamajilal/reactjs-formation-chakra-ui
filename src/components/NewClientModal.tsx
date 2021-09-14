@@ -46,7 +46,7 @@ const NewClientModal: React.FC<NewClientModalProps> = (props) => {
     <Modal isOpen={props.isOpen} onClose={props.onClose}>
       <ModalOverlay />
       <ModalContent>
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} data-testid="new-client-form">
           <ModalHeader>New Client</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -57,7 +57,11 @@ const NewClientModal: React.FC<NewClientModalProps> = (props) => {
             <Button variant="ghost" mr="3" onClick={props.onClose}>
               Cancel
             </Button>
-            <Button type="submit" colorScheme="blue">
+            <Button
+              data-testid="newclient-form-submit"
+              type="submit"
+              colorScheme="blue"
+            >
               Add
             </Button>
           </ModalFooter>

@@ -51,6 +51,7 @@ const ClientList = () => {
       <ClientTable clients={clients} />
       <Container maxW="container.lg" paddingTop="5">
         <Button
+          data-testid="modal-btn"
           leftIcon={<PlusSquareIcon />}
           colorScheme="green"
           variant="solid"
