@@ -2,7 +2,7 @@ import * as React from "react";
 import { render } from "../../test-utils";
 import NewClientModal from "../NewClientModal";
 import userEvent from "@testing-library/user-event";
-import { waitFor } from "@testing-library/dom";
+import { screen, waitFor } from "@testing-library/dom";
 
 let onClose: jest.Mock;
 let handleSubmit: jest.Mock;
@@ -12,9 +12,9 @@ beforeEach(() => {
   handleSubmit = jest.fn();
 });
 
-describe("NewClientModal", () => {
+describe("NewClientModal", async () => {
   it("should render correctly", async () => {
-    const componentDom = render(
+    render(
       <NewClientModal
         isOpen={true}
         onClose={onClose}
@@ -22,24 +22,24 @@ describe("NewClientModal", () => {
       />
     );
 
-    const idElement = componentDom.getByTestId("new-client-id");
+    const idElement = screen.getByTestId("new-client-id");
     userEvent.type(idElement, "4");
-    const firstNameElement = componentDom.getByTestId("new-client-first-name");
+    const firstNameElement = screen.getByTestId("new-client-first-name");
     userEvent.type(firstNameElement, "fake first name");
-    const lastNameElement = componentDom.getByTestId("new-client-last-name");
+    const lastNameElement = screen.getByTestId("new-client-last-name");
     userEvent.type(lastNameElement, "fake last name");
-    const emailElement = componentDom.getByTestId("new-client-email");
+    const emailElement = screen.getByTestId("new-client-email");
     userEvent.type(emailElement, "fake@email.com");
-    const phoneNumberElement = componentDom.getByTestId(
+    const phoneNumberElement = screen.getByTestId(
       "new-client-phone-number"
     );
     userEvent.type(phoneNumberElement, "666778899");
-    const heightElement = componentDom.getByTestId("new-client-height");
+    const heightElement = screen.getByTestId("new-client-height");
     userEvent.type(heightElement, "61.3");
-    const isActiveElement = componentDom.getByTestId("new-client-is-active");
+    const isActiveElement = screen.getByTestId("new-client-is-active");
     userEvent.click(isActiveElement);
 
-    const formSubmit = componentDom.getByTestId("newclient-form-submit");
+    const formSubmit = screen.getByTestId("newclient-form-submit");
     userEvent.click(formSubmit);
 
     await waitFor(() =>
