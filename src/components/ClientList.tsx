@@ -12,7 +12,7 @@ import Loader from "./Loader";
 import ErrorAlert from "./ErrorAlert";
 
 const ClientList = () => {
-  const { data, error, isError, isLoading } = useQuery(
+  const { data, error, isError, isLoading, refetch } = useQuery(
     "clients",
     queries.fetchClients
   );
@@ -28,7 +28,7 @@ const ClientList = () => {
   }
 
   const handleSubmit = (_newClient: Client) => {
-    //setClients([...clients, newClient]);
+    refetch();
   };
 
   return (
