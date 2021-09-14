@@ -6,49 +6,34 @@ import ClientTable from "./ClientTable";
 import { useDisclosure } from "@chakra-ui/hooks";
 import NewClientModal from "./NewClientModal";
 import { Client } from "./Client";
+import { useQuery } from "react-query";
+import queries from "./queries";
+import Loader from "./Loader";
+import ErrorAlert from "./ErrorAlert";
 
 const ClientList = () => {
-  const initialClients: Array<Client> = [
-    {
-      id: "1",
-      firstName: "Ahmed",
-      lastName: "Ali",
-      email: "ahmed.ali@email.com",
-      phoneNumber: "+212666778899",
-      height: 72.5,
-      isActive: true,
-    },
-    {
-      id: "2",
-      firstName: "Salim",
-      lastName: "Karam",
-      email: "salim.karam@email.com",
-      phoneNumber: "+212666778898",
-      height: 65.0,
-      isActive: false,
-    },
-    {
-      id: "3",
-      firstName: "Soukaina",
-      lastName: "Latif",
-      email: "soukaina.latif@email.com",
-      phoneNumber: "+212666778897",
-      height: 69.3,
-      isActive: true,
-    },
-  ];
-
-  const [clients, setClients] = React.useState(initialClients);
+  const { data, error, isError, isLoading } = useQuery(
+    "clients",
+    queries.fetchClients
+  );
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const handleSubmit = (newClient: Client) => {
-    setClients([...clients, newClient]);
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (isError && error instanceof Error) {
+    return <ErrorAlert message={error.message} />;
+  }
+
+  const handleSubmit = (_newClient: Client) => {
+    //setClients([...clients, newClient]);
   };
 
   return (
     <>
-      <ClientTable clients={clients} />
+      <ClientTable clients={data as Array<Client>} />
       <Container maxW="container.lg" paddingTop="5">
         <Button
           data-testid="modal-btn"
