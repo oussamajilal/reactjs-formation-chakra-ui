@@ -33,7 +33,11 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
         mb="2"
         isInvalid={!!(props.formik.touched.id && props.formik.errors.id)}
       >
-        <Input placeholder="ID" {...props.formik.getFieldProps("id")} />
+        <Input
+          data-testid="new-client-id"
+          placeholder="ID"
+          {...props.formik.getFieldProps("id")}
+        />
         <FormErrorMessage>{props.formik.errors.id}</FormErrorMessage>
       </FormControl>
       <FormControl
@@ -72,6 +76,7 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
             children={<EmailIcon color="gray.300" />}
           />
           <Input
+            data-testid="new-client-email"
             type="email"
             placeholder="Email"
             {...props.formik.getFieldProps("email")}
@@ -90,6 +95,7 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
         <InputGroup>
           <InputLeftAddon children="+212" />
           <Input
+            data-testid="new-client-phone-number"
             type="tel"
             placeholder="Phone Number"
             {...props.formik.getFieldProps("phoneNumber")}
@@ -114,6 +120,7 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
           min={20}
         >
           <NumberInputField
+            data-testid="new-client-height"
             placeholder="Height"
             {...props.formik.getFieldProps("height")}
           />
@@ -136,6 +143,7 @@ const NewClientForm: React.FC<NewClientFormProps> = (props) => {
         </FormLabel>
         <Switch
           id="client-active"
+          data-testid="new-client-is-active"
           isChecked={props.formik.getFieldProps("isActive").value}
           {...props.formik.getFieldProps("isActive")}
         />
