@@ -13,6 +13,9 @@ import NewClientForm from "./NewClientForm";
 import { useFormik } from "formik";
 import { Client } from "./Client";
 import NewClientSchema from "./NewClientSchema";
+import queries from "./queries";
+import { useMutation } from "react-query";
+import { Alert, AlertIcon } from "@chakra-ui/alert";
 
 interface NewClientModalProps {
   isOpen: boolean;
@@ -21,6 +24,11 @@ interface NewClientModalProps {
 }
 
 const NewClientModal: React.FC<NewClientModalProps> = (props) => {
+  const { isLoading, isError, error, mutate } = useMutation(
+    queries.createClient,
+    { retry: 3 }
+  );
+
   const initialValues: Client = {
     id: "",
     firstName: "",
@@ -32,6 +40,7 @@ const NewClientModal: React.FC<NewClientModalProps> = (props) => {
   };
 
   const handleSubmit = (values: Client) => {
+    mutate(values);
     props.handleSubmit(values);
     props.onClose();
   };
@@ -51,6 +60,15 @@ const NewClientModal: React.FC<NewClientModalProps> = (props) => {
           <ModalCloseButton />
           <ModalBody>
             <NewClientForm formik={formik} />
+
+            {isError && error instanceof Error && (
+              <Alert status="error" mt="5">
+                <AlertIcon />
+                There was an error processing your request
+                <br />
+                Error: {error.message}
+              </Alert>
+            )}
           </ModalBody>
 
           <ModalFooter>
@@ -61,6 +79,8 @@ const NewClientModal: React.FC<NewClientModalProps> = (props) => {
               data-testid="newclient-form-submit"
               type="submit"
               colorScheme="blue"
+              isLoading={isLoading}
+              loadingText="Creating"
             >
               Add
             </Button>
