@@ -11,13 +11,21 @@ import { EmailIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/button";
 import { Container } from "@chakra-ui/react";
 import loginSchema from "./LoginSchema";
+import { useMutation } from "react-query";
+import { Alert, AlertIcon } from "@chakra-ui/alert";
+import queries from "../queries";
+import { Credentials } from "./LoginTypes";
 
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const handleShowPasswordClick = () => setShowPassword(!showPassword);
 
+  const { isLoading, isError, error, mutate } = useMutation(queries.login);
+
   const initialValues = { email: "", password: "" };
-  const handleSubmit = () => {};
+  const handleSubmit = (values: Credentials) => {
+    mutate(values);
+  };
 
   const formik = useFormik({
     initialValues: initialValues,
@@ -66,9 +74,19 @@ const Login = () => {
           <FormErrorMessage>{formik.errors.password}</FormErrorMessage>
         </FormControl>
 
+        {isError && error instanceof Error && (
+          <Alert status="error" mt="5">
+            <AlertIcon />
+            There was an error processing your request
+            <br />
+            Error: {error.message}
+          </Alert>
+        )}
+
         <Button
           type="submit"
           colorScheme="blue"
+          isLoading={isLoading}
           loadingText="Connecting"
           w="100%"
         >

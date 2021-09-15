@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Client } from "./Client/Client";
+import { Credentials } from "./Login/LoginTypes";
 
 const BASE_URL = "http://localhost:3001";
 
@@ -18,6 +19,11 @@ const createClient = async (client: Client) => {
   return data;
 };
 
-const queries = { fetchProfile, fetchClients, createClient };
+const login = async (credentials: Credentials) => {
+  const { data } = await axios.post(`${BASE_URL}/login`, credentials);
+  return data;
+};
+
+const queries = { login, fetchProfile, fetchClients, createClient };
 
 export default queries;
