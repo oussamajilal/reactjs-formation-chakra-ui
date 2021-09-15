@@ -15,16 +15,22 @@ import { useMutation } from "react-query";
 import { Alert, AlertIcon } from "@chakra-ui/alert";
 import queries from "../queries";
 import { Credentials } from "./LoginTypes";
+import { UserTokenContext } from "../UserTokenContext";
 
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const handleShowPasswordClick = () => setShowPassword(!showPassword);
 
   const { isLoading, isError, error, mutate } = useMutation(queries.login);
+  const { updateUserToken } = React.useContext(UserTokenContext);
 
   const initialValues = { email: "", password: "" };
   const handleSubmit = (values: Credentials) => {
-    mutate(values);
+    mutate(values, {
+      onSuccess: (values) => {
+        updateUserToken(values);
+      },
+    });
   };
 
   const formik = useFormik({

@@ -16,23 +16,23 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
 import Profile from "./components/Profile/Profile";
 import { DragHandleIcon, HamburgerIcon, StarIcon } from "@chakra-ui/icons";
-import { Client } from "./components/Client/Client";
-import { UserContext } from "./components/UserContext";
+import { UserTokenContext } from "./components/UserTokenContext";
 import Login from "./components/Login/Login";
+import { UserToken } from "./components/UserTypes";
 
 const queryClient = new QueryClient();
 
 export const App = () => {
-  const [user, setUser] = React.useState<Client | null>(null);
+  const [userToken, setUserToken] = React.useState<UserToken | null>(null);
 
-  function updateUser(user: Client) {
-    setUser(user);
+  function updateUserToken(userToken: UserToken) {
+    setUserToken(userToken);
   }
 
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider theme={theme}>
-        <UserContext.Provider value={{ user, updateUser }}>
+        <UserTokenContext.Provider value={{ userToken, updateUserToken }}>
           <BrowserRouter>
             <Flex>
               <Spacer />
@@ -66,7 +66,7 @@ export const App = () => {
               </Route>
             </Switch>
           </BrowserRouter>
-        </UserContext.Provider>
+        </UserTokenContext.Provider>
       </ChakraProvider>
     </QueryClientProvider>
   );
