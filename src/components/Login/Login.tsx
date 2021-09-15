@@ -16,6 +16,7 @@ import { Alert, AlertIcon } from "@chakra-ui/alert";
 import queries from "../queries";
 import { Credentials } from "./LoginTypes";
 import { UserTokenContext } from "../UserTokenContext";
+import { useHistory } from "react-router";
 
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -23,12 +24,14 @@ const Login = () => {
 
   const { isLoading, isError, error, mutate } = useMutation(queries.login);
   const { updateUserToken } = React.useContext(UserTokenContext);
+  let history = useHistory();
 
   const initialValues = { email: "", password: "" };
   const handleSubmit = (values: Credentials) => {
     mutate(values, {
       onSuccess: (values) => {
         updateUserToken(values);
+        history.push("/");
       },
     });
   };
