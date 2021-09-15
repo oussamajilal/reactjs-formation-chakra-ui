@@ -19,6 +19,7 @@ import { DragHandleIcon, HamburgerIcon, StarIcon } from "@chakra-ui/icons";
 import { UserTokenContext } from "./components/UserTokenContext";
 import Login from "./components/Login/Login";
 import { UserToken } from "./components/UserTypes";
+import PrivateRoute from "./components/PrivateRoute";
 
 const queryClient = new QueryClient();
 
@@ -55,15 +56,15 @@ export const App = () => {
               </Menu>
             </Flex>
             <Switch>
-              <Route path="/profile">
+              <PrivateRoute path="/profile">
                 <Profile />
-              </Route>
+              </PrivateRoute>
               <Route path="/login">
                 <Login />
               </Route>
-              <Route exact path="/">
+              <PrivateRoute exact path="/">
                 <ClientList />
-              </Route>
+              </PrivateRoute>
             </Switch>
           </BrowserRouter>
         </UserTokenContext.Provider>
