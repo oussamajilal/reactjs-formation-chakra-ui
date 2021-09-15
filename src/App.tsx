@@ -18,6 +18,7 @@ import Profile from "./components/Profile/Profile";
 import { DragHandleIcon, HamburgerIcon, StarIcon } from "@chakra-ui/icons";
 import { Client } from "./components/Client/Client";
 import { UserContext } from "./components/UserContext";
+import Login from "./components/Login/Login";
 
 const queryClient = new QueryClient();
 
@@ -57,7 +58,10 @@ export const App = () => {
               <Route path="/profile">
                 <Profile />
               </Route>
-              <Route path="/">
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route exact path="/">
                 <ClientList />
               </Route>
             </Switch>

@@ -12,7 +12,7 @@ import { Button } from "@chakra-ui/button";
 import NewClientForm from "./NewClientForm";
 import { useFormik } from "formik";
 import { Client } from "./Client";
-import NewClientSchema from "./NewClientSchema";
+import newClientSchema from "./NewClientSchema";
 import queries from "../queries";
 import { useMutation } from "react-query";
 import { Alert, AlertIcon } from "@chakra-ui/alert";
@@ -51,7 +51,7 @@ const NewClientModal: React.FC<NewClientModalProps> = (props) => {
   const formik = useFormik({
     initialValues: initialValues,
     onSubmit: handleSubmit,
-    validationSchema: NewClientSchema,
+    validationSchema: newClientSchema,
   });
 
   return (

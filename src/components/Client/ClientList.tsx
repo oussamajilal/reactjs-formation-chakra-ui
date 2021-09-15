@@ -5,7 +5,6 @@ import { Container, Heading } from "@chakra-ui/layout";
 import ClientTable from "./ClientTable";
 import { useDisclosure } from "@chakra-ui/hooks";
 import NewClientModal from "./NewClientModal";
-import { Client } from "./Client";
 import { useQuery } from "react-query";
 import queries from "../queries";
 import Loader from "../Loader";

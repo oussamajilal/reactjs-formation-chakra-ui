@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-const NewClientSchema = Yup.object().shape({
+const newClientSchema = Yup.object().shape({
   id: Yup.string().required("Required"),
   firstName: Yup.string().required("Required"),
   lastName: Yup.string().required("Required"),
@@ -13,4 +13,4 @@ const NewClientSchema = Yup.object().shape({
   isActive: Yup.boolean().required("Required"),
 });
 
-export default NewClientSchema;
+export default newClientSchema;
