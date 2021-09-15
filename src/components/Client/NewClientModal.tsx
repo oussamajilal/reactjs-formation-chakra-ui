@@ -42,7 +42,7 @@ const NewClientModal: React.FC<NewClientModalProps> = (props) => {
   const handleSubmit = async (values: Client) => {
     mutate(values, {
       onSuccess: () => {
-        props.handleSubmit(values);
+        props.handleSubmit();
         props.onClose();
       },
     });

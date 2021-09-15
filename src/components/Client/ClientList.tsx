@@ -29,7 +29,7 @@ const ClientList = () => {
     return <ErrorAlert message={error.message} />;
   }
 
-  const handleSubmit = (_newClient: Client) => {
+  const handleSubmit = () => {
     refetch();
   };
 
