@@ -20,6 +20,7 @@ import { UserTokenContext } from "./components/UserTokenContext";
 import Login from "./components/Login/Login";
 import { UserToken } from "./components/UserTypes";
 import PrivateRoute from "./components/PrivateRoute";
+import AxiosInterceptor from "./components/AxiosInterceptor";
 
 const queryClient = new QueryClient();
 
@@ -34,39 +35,41 @@ export const App = () => {
     <QueryClientProvider client={queryClient}>
       <ChakraProvider theme={theme}>
         <UserTokenContext.Provider value={{ userToken, updateUserToken }}>
-          <BrowserRouter>
-            <Flex>
-              <Spacer />
-              <ColorModeSwitcher />
-              <Menu>
-                <MenuButton
-                  as={IconButton}
-                  aria-label="Options"
-                  icon={<HamburgerIcon />}
-                  variant="outline"
-                />
-                <MenuList>
-                  <Link to="/">
-                    <MenuItem icon={<DragHandleIcon />}>Home Page</MenuItem>
-                  </Link>
-                  <Link to="/profile">
-                    <MenuItem icon={<StarIcon />}>Profile</MenuItem>
-                  </Link>
-                </MenuList>
-              </Menu>
-            </Flex>
-            <Switch>
-              <PrivateRoute path="/profile">
-                <Profile />
-              </PrivateRoute>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <PrivateRoute exact path="/">
-                <ClientList />
-              </PrivateRoute>
-            </Switch>
-          </BrowserRouter>
+          <AxiosInterceptor>
+            <BrowserRouter>
+              <Flex>
+                <Spacer />
+                <ColorModeSwitcher />
+                <Menu>
+                  <MenuButton
+                    as={IconButton}
+                    aria-label="Options"
+                    icon={<HamburgerIcon />}
+                    variant="outline"
+                  />
+                  <MenuList>
+                    <Link to="/">
+                      <MenuItem icon={<DragHandleIcon />}>Home Page</MenuItem>
+                    </Link>
+                    <Link to="/profile">
+                      <MenuItem icon={<StarIcon />}>Profile</MenuItem>
+                    </Link>
+                  </MenuList>
+                </Menu>
+              </Flex>
+              <Switch>
+                <PrivateRoute path="/profile">
+                  <Profile />
+                </PrivateRoute>
+                <Route path="/login">
+                  <Login />
+                </Route>
+                <PrivateRoute exact path="/">
+                  <ClientList />
+                </PrivateRoute>
+              </Switch>
+            </BrowserRouter>
+          </AxiosInterceptor>
         </UserTokenContext.Provider>
       </ChakraProvider>
     </QueryClientProvider>
