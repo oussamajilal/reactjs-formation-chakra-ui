@@ -6,7 +6,6 @@ import Loader from "../Loader";
 import ErrorAlert from "../ErrorAlert";
 
 const Profile = () => {
-  //const { updateUser } = React.useContext(UserContext);
   const { data, error, isError, isLoading } = useQuery(
     "profile",
     queries.fetchProfile,

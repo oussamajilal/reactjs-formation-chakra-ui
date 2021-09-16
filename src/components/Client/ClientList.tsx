@@ -11,7 +11,6 @@ import Loader from "../Loader";
 import ErrorAlert from "../ErrorAlert";
 
 const ClientList = () => {
-  //const { user } = React.useContext(UserContext);
   const { data, error, isError, isLoading, refetch } = useQuery(
     "clients",
     queries.fetchClients
