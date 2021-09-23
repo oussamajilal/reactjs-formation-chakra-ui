@@ -4,6 +4,7 @@ import ErrorAlert from "../ErrorAlert";
 import { useDispatch, useSelector } from "react-redux";
 import { PROFILE_FETCH_REQUESTED } from "./sagas";
 import { RootState } from "../combineReducers";
+import Loader from "../Loader";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -12,12 +13,15 @@ const Profile = () => {
     dispatch({ type: PROFILE_FETCH_REQUESTED });
   }, [dispatch]);
 
+  const isLoading = useSelector(
+    (state: RootState) => state.profilePage.isLoading
+  );
   const data = useSelector((state: RootState) => state.profilePage.profile);
   const error = useSelector((state: RootState) => state.profilePage.error);
 
-  // if (isLoading) {
-  //   return <Loader />;
-  // }
+  if (isLoading) {
+    return <Loader />;
+  }
 
   if (error instanceof Error) {
     return <ErrorAlert message={error.message} />;
