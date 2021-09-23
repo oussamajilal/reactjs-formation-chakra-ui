@@ -1,7 +1,14 @@
 import { Action } from "redux";
+import { Client } from "../Client/Client";
 
 export const PROFILE_FETCH_SUCCESS = "PROFILE_FETCH_SUCCESS";
 export const PROFILE_FETCH_ERROR = "PROFILE_FETCH_ERROR";
+
+export interface ProfileState {
+  profile: Client | null;
+  isLoading: boolean;
+  error: Error | null;
+}
 
 const initialState = {
   profile: null,

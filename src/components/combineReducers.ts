@@ -1,5 +1,9 @@
 import { combineReducers } from "redux";
-import profileReducer from "./Profile/reducer";
+import profileReducer, { ProfileState } from "./Profile/reducer";
+
+export interface RootState {
+  profilePage: ProfileState;
+}
 
 export default combineReducers({
   profilePage: profileReducer,

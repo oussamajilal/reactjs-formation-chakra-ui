@@ -11,9 +11,10 @@ import queries from "../queries";
 import Loader from "../Loader";
 import ErrorAlert from "../ErrorAlert";
 import { useSelector } from "react-redux";
+import { RootState } from "../combineReducers";
 
 const ClientList = () => {
-  const profile = useSelector((state) => state.profilePage.profile);
+  const profile = useSelector((state: RootState) => state.profilePage.profile);
   const { data, error, isError, isLoading, refetch } = useQuery(
     "clients",
     queries.fetchClients
