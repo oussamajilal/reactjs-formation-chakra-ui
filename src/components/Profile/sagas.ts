@@ -3,7 +3,7 @@ import { Client } from "../Client/Client";
 import queries from "../queries";
 import { PROFILE_FETCH_ERROR, PROFILE_FETCH_SUCCESS } from "./reducer";
 
-export const USER_FETCH_REQUESTED = "USER_FETCH_REQUESTED";
+export const PROFILE_FETCH_REQUESTED = "PROFILE_FETCH_REQUESTED";
 
 function* fetchProfile() {
   try {
@@ -14,7 +14,7 @@ function* fetchProfile() {
   }
 }
 function* fetchProfileSaga() {
-  yield takeLatest(USER_FETCH_REQUESTED, fetchProfile);
+  yield takeLatest(PROFILE_FETCH_REQUESTED, fetchProfile);
 }
 
 export default fetchProfileSaga;

@@ -1,32 +1,25 @@
 import * as React from "react";
 import { Box, Flex } from "@chakra-ui/layout";
-import { useQuery } from "react-query";
-import queries from "../queries";
-import Loader from "../Loader";
 import ErrorAlert from "../ErrorAlert";
-import { useDispatch } from "react-redux";
-import { PROFILE_FETCH_ERROR, PROFILE_FETCH_SUCCESS } from "./reducer";
+import { useDispatch, useSelector } from "react-redux";
+import { PROFILE_FETCH_REQUESTED } from "./sagas";
+import { RootState } from "../combineReducers";
 
 const Profile = () => {
   const dispatch = useDispatch();
-  const { data, error, isError, isLoading } = useQuery(
-    "profile",
-    queries.fetchProfile,
-    {
-      onSuccess: (data) => {
-        dispatch({ type: PROFILE_FETCH_SUCCESS, payload: data });
-      },
-      onError: (error) => {
-        dispatch({ type: PROFILE_FETCH_ERROR, payload: error });
-      },
-    }
-  );
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  React.useEffect(() => {
+    dispatch({ type: PROFILE_FETCH_REQUESTED });
+  }, [dispatch]);
 
-  if (isError && error instanceof Error) {
+  const data = useSelector((state: RootState) => state.profilePage.profile);
+  const error = useSelector((state: RootState) => state.profilePage.error);
+
+  // if (isLoading) {
+  //   return <Loader />;
+  // }
+
+  if (error instanceof Error) {
     return <ErrorAlert message={error.message} />;
   }
 
