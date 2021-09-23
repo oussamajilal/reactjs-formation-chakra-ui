@@ -1,7 +1,7 @@
 import { Action } from "redux";
 
-const PROFILE_FETCH_SUCCESS = "PROFILE_FETCH_SUCCESS";
-const PROFILE_FETCH_ERROR = "PROFILE_FETCH_ERROR";
+export const PROFILE_FETCH_SUCCESS = "PROFILE_FETCH_SUCCESS";
+export const PROFILE_FETCH_ERROR = "PROFILE_FETCH_ERROR";
 
 const initialState = {
   profile: null,

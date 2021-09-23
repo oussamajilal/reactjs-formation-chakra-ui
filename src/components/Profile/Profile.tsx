@@ -4,11 +4,22 @@ import { useQuery } from "react-query";
 import queries from "../queries";
 import Loader from "../Loader";
 import ErrorAlert from "../ErrorAlert";
+import { useDispatch } from "react-redux";
+import { PROFILE_FETCH_ERROR, PROFILE_FETCH_SUCCESS } from "./reducer";
 
 const Profile = () => {
+  const dispatch = useDispatch();
   const { data, error, isError, isLoading } = useQuery(
     "profile",
-    queries.fetchProfile
+    queries.fetchProfile,
+    {
+      onSuccess: (data) => {
+        dispatch({ type: PROFILE_FETCH_SUCCESS, payload: data });
+      },
+      onError: (error) => {
+        dispatch({ type: PROFILE_FETCH_ERROR, payload: error });
+      },
+    }
   );
 
   if (isLoading) {
